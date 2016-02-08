@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :movies
+  
+  devise_for :users
+  resources :movies do
+    collection do
+      get 'search'
+    end  
+  resources :reviews 
+end
+  root 'movies#index'
+  #, except:[:show, :index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
