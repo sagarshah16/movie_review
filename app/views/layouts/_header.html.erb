@@ -18,7 +18,7 @@
           <li><%= link_to "New Movie", new_movie_path, class: "active" %></li>
           <li><%= link_to "Account", edit_user_registration_path %></li>
           <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-          <<% else %>
+          <% else %>
           <li><%= link_to "Account", edit_user_registration_path %></li>
           <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
           <% end %>
@@ -33,6 +33,22 @@
        <%= submit_tag "Search", name: nil, class: "btn btn-default" %> </p>
        <% end %>
 
+ 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<script type="text/javascript">
+jQuery(function($) {
+  $("#sort_by").change(function() {
+   $.ajax({ 
+  type: 'GET',
+  url: '/sort',
+  data: {'order' :$('#sort_by option:selected').val()},
+  success: function(data){
+    window.result = data;
+  } 
+   
+  });
+})
+  })
+</script>

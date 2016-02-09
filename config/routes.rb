@@ -4,10 +4,17 @@ Rails.application.routes.draw do
   resources :movies do
     collection do
       get 'search'
+      get 'asort'
+      get 'dsort'
+      get 'rsort'
+
     end  
   resources :reviews 
 end
   root 'movies#index'
+
+
+
   #, except:[:show, :index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

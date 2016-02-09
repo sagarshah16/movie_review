@@ -26,11 +26,12 @@
   <%= @movie.Rating %>
 </p>
 
-<%= link_to "Write a review", new_movie_review_path(@movie) %>
+
+<div class="star-rating" data-score= <%= @avg_review %> > </div>
 
 <h1 class="title"><%= @movie.Title %> </h1>
 <p class="description"><%= @movie.Description %> </p>
-
+  <% is_exist = 0 %>
 <% if @reviews.blank? %>
   <h3> No review Yet </h3>
   <%= link_to "Write a review", new_movie_review_path(@movie) %>
@@ -41,14 +42,17 @@
  <p><%= review.comment %> </p>
   <p> <%= current_user.id %> review <%= review.user_id %> </p>
  
- <% if user_signed_in?  && current_user.id == review.user_id  %>  </p>
+ <% if user_signed_in?  && current_user.id == review.user_id  %> 
+  <% is_exist = 1 %>
  <p> <%= link_to 'Edit', edit_movie_review_path(@movie, review.id) %></p>
  <%= link_to 'Delete', movie_review_path(@movie, review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
  <% end %>
  </div>
  <% end %>
  <% end %>
-
+<% if is_exist == 0 %>
+      <%= link_to "Write a review", new_movie_review_path(@movie) %>
+    <% end %>  
 
   <% if user_signed_in?  %>
         <% if current_user.id == 1 %>

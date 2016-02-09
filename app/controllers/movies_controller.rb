@@ -1,6 +1,14 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
  # before_action :authenticate_user!, expect: [:index, :show]
+  before_action :set_rating_array
+ def asort
+  @movies = Movie.order(:Title)
+ end
+
+ def dsort
+  @movies = Movie.order(Title: :DESC)
+  end
 
  def search
   if params[:search].present?
@@ -13,12 +21,23 @@ class MoviesController < ApplicationController
   # GET /movies.json
   def index
     @movies = Movie.all
+   
   end
 
+  def rsort
+    @avg_review = @avg_review
+    @movies = Movie.order(@sort_rating)
+  end
   # GET /movies/1
   # GET /movies/1.json
   def show
     @reviews = Review.where(movie_id: @movie.id).order("created_at DESC")
+  
+   if @reviews.blank?
+    @avg_review = 0
+   else
+    @avg_review = @reviews.average(:rating).round(2)
+   end
   end
 
   # GET /movies/new
@@ -72,6 +91,22 @@ class MoviesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_rating_array
+      @movies = Movie.all
+      @avg_review = []
+      @has_rating = {}
+    @movies.each do |movie|
+      @reviews = Review.where(movie_id: movie.id).order("created_at DESC")
+     
+   if @reviews.blank?
+    @avg_review.push(0)
+   else
+   @avg_review.push(@reviews.average(:rating).round(2))
+   @has_rating.store(movie.id, @reviews.average(:rating).round(2))
+   end
+    
+ end
+end
     def set_movie
       @movie = Movie.find(params[:id])
     end
