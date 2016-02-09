@@ -36,7 +36,7 @@
  <div class="review">
  <div class="star-rating" data-score= <%= review.rating %> > <%= review.user.email %></div>
  <p><%= review.comment %> </p>
-  <p> <%= current_user.id %> review <%= review.user_id %> </p>
+  
  
  <% if user_signed_in?  && current_user.id == review.user_id  %> 
   <% is_exist = 1 %>
