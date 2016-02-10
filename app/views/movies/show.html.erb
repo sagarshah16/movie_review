@@ -1,63 +1,76 @@
-<%= image_tag @movie.image.url(:medium) %>
-  
 
-<p>
-  <strong>Title:</strong>
-  <%= @movie.Title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @movie.Description %>
-</p>
-
+ 
+  <div class="container-fluid">
+  <h1> <%= @movie.Title %></h1>
+  <p><%= @movie.Description %></p>
+  <div class="row">
+    <div class="col-sm-4" >
+    <%= image_tag @movie.image.url(:medium) %>
+   <div class="star-rating" data-score= <%= @avg_review %> > </div>
 <p>
   <strong>Duration:</strong>
   <%= @movie.Duration %>
 </p>
-
+ 
 <p>
   <strong>Actor:</strong>
   <%= @movie.Actor %>
 </p>
 
-
-
-<div class="star-rating" data-score= <%= @avg_review %> > </div>
-
-<h1 class="title"><%= @movie.Title %> </h1>
-<p class="description"><%= @movie.Description %> </p>
-  <% is_exist = 0 %>
+<% is_exist = 0 %>
+</div>
+    <div class="col-sm-8" >
+   
 <% if @reviews.blank? %>
   <h3> No review Yet </h3>
-  <%= link_to "Write a review", new_movie_review_path(@movie) %>
-<% else %>
- <% @reviews.each do |review| %>
- <div class="review">
- <div class="star-rating" data-score= <%= review.rating %> > <%= review.user.email %></div>
- <p><%= review.comment %> </p>
+  <%= link_to "Write a review", new_movie_review_path(@movie), class:"btn btn-default" %>
+  <% else %>
+  <% @reviews.each do |review| %>
+
+    
+                        <p class="caption">  <b> <%= review.user.email %></b> </p>
+                           
+                      
+                        <h6 class="text-muted time"><div class="star-rating" data-score= <%= review.rating %> ></div></h6>
+                
+                <div class="post-description"> 
+                     <p><%= review.comment %> </p>
+
+                
+                   <% if user_signed_in?  && current_user.id == review.user_id  %> 
+                    <% is_exist = 1 %>
+                     <%= link_to 'Edit', edit_movie_review_path(@movie, review.id),class: "btn btn-default" %>
+                    <%= link_to 'Delete', movie_review_path(@movie, review.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+                        <% end %>
+
+                     <% end %>
+               
   
+                  </div>
+  
+
  
- <% if user_signed_in?  && current_user.id == review.user_id  %> 
-  <% is_exist = 1 %>
- <p> <%= link_to 'Edit', edit_movie_review_path(@movie, review.id) %></p>
- <%= link_to 'Delete', movie_review_path(@movie, review.id), method: :delete, data: { confirm: 'Are you sure?' } %>
- <% end %>
+      </div>
+      <% end %>
  </div>
- <% end %>
- <% end %>
-<% if is_exist == 0 %>
-      <%= link_to "Write a review", new_movie_review_path(@movie) %>
-    <% end %>  
+
+ </div>
+ <div clas="container">
+<div class="row">
 
   <% if user_signed_in?  %>
-        <% if current_user.id == 1 %>
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
- <%= link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<% end %>
+  
 
+        <% if current_user.id == 1 %>
+<%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-default" %> |
+<%= link_to 'Back', movies_path, class:"btn btn-default" %>
+ <%= link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+<% end %>
+<% end %>
+  </div>
+ </div>
+  
+ 
 <script>
   $('.star-rating').raty({
     path:'/assets/',

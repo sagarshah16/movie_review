@@ -1,0 +1,247 @@
+
+---
+movies:
+  columns:
+  - id
+  - Title
+  - Description
+  - Duration
+  - Actor
+  - Rating
+  - created_at
+  - updated_at
+  - user_id
+  - image_file_name
+  - image_content_type
+  - image_file_size
+  - image_updated_at
+  records: 
+  - - 2
+    - 'The 5th Wave '
+    - Four waves of increasingly deadly alien attacks have left most of Earth decimated.
+      Cassie is on the run, desperately trying to save her younger brother.
+    - '2.0'
+    - Gabriela Lopez
+    - '5'
+    - 476643600
+    - 476816400
+    - 1
+    - would-you-survive-to-the-5th-wave-616091.jpg
+    - image/png
+    - 118471
+    - 476816400
+  - - 3
+    - 'Suicide Squad '
+    - Four waves of increasingly deadly alien attacks have left most of Earth decimated.
+      Cassie is on the run, desperately trying to save her younger brother.
+    - '2.0'
+    - Gabriela Lopez
+    - '2'
+    - '2016-02-07 23:22:07.088631'
+    - '2016-02-09 20:20:33.864254'
+    - 1
+    - would-you-survive-to-the-5th-wave-616091_(1).jpg
+    - image/jpeg
+    - 118471
+    - '2016-02-09 20:20:33.675814'
+  - - 6
+    - " Deadpool "
+    - A former Special Forces operative turned mercenary is subjected to a rogue experiment
+      that leaves him with accelerated healing powers, adopting the alter ego Deadpool.
+    - '2.5'
+    - " Ryan Reynolds"
+    - 
+    - '2016-02-09 20:10:49.247180'
+    - '2016-02-09 20:20:10.314592'
+    - 1
+    - image-deadpool.png
+    - image/png
+    - 1325534
+    - '2016-02-09 20:20:09.852747'
+  - - 7
+    - efnwe
+    - ebeqrv
+    - '12'
+    - " Margot Robbie"
+    - 
+    - '2016-02-10 04:53:33.257223'
+    - '2016-02-10 04:53:33.257223'
+    - 1
+    - 1128279-medium_jpg.jpeg
+    - image/jpeg
+    - 4183
+    - '2016-02-10 04:53:33.078198'
+
+---
+users:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - sagarshah16@gmail.com
+    - "$2a$10$HJtAsPVOb8yRScLHG2tB4un3fg3c1x4izsYKPeIiSuc5jRkDfB6pe"
+    - 
+    - 
+    - 
+    - 14
+    - '2016-02-10 00:50:19.226632'
+    - '2016-02-09 21:03:20.108977'
+    - "::1"
+    - "::1"
+    - '2016-02-07 10:00:51.132144'
+    - '2016-02-10 00:50:19.227699'
+  - - 2
+    - sshah87@stevens.edu
+    - "$2a$10$lR74y9cldfD24pWUurAUbeqEPsNckuzsXl2Bxe21irWKMmwomz/BW"
+    - 
+    - 
+    - 
+    - 11
+    - '2016-02-09 09:02:35.625939'
+    - '2016-02-09 00:24:26.475823'
+    - "::1"
+    - "::1"
+    - '2016-02-07 11:22:02.711597'
+    - '2016-02-09 09:02:35.626928'
+  - - 3
+    - sshah88@stevens.edu
+    - "$2a$10$eDl1NcvRq.3gwdfmQMvUHeCbfHJ6f/D128FBufcpEIAcC5nokYKuC"
+    - 
+    - 
+    - 
+    - 1
+    - '2016-02-07 18:24:42.149724'
+    - '2016-02-07 18:24:42.149724'
+    - "::1"
+    - "::1"
+    - '2016-02-07 18:24:42.147213'
+    - '2016-02-07 18:24:42.150266'
+
+---
+reviews:
+  columns:
+  - id
+  - rating
+  - comment
+  - created_at
+  - updated_at
+  - user_id
+  - movie_id
+  records: 
+  - - 6
+    - 3
+    - asfesf
+    - '2016-02-07 18:53:00.837174'
+    - '2016-02-07 18:53:00.837174'
+    - 3
+    - 
+  - - 7
+    - 3
+    - asfesfasdfghj
+    - '2016-02-07 18:56:44.598242'
+    - '2016-02-07 18:56:44.598242'
+    - 3
+    - 
+  - - 8
+    - 3
+    - rtbrvdf
+    - '2016-02-07 19:19:25.808994'
+    - '2016-02-07 19:19:25.808994'
+    - 3
+    - 
+  - - 10
+    - 4
+    - rhjk
+    - '2016-02-07 19:38:51.216024'
+    - '2016-02-07 19:38:51.216024'
+    - 3
+    - 1
+  - - 11
+    - 2
+    - nyhtgrfejhgt
+    - '2016-02-07 20:01:14.417106'
+    - '2016-02-07 20:01:14.417106'
+    - 3
+    - 1
+  - - 12
+    - 4
+    - sfwverv
+    - '2016-02-07 22:26:22.894648'
+    - '2016-02-07 22:26:22.894648'
+    - 2
+    - 1
+  - - 17
+    - 4
+    - wrg4tre
+    - '2016-02-08 05:23:58.528206'
+    - '2016-02-08 05:23:58.528206'
+    - 2
+    - 2
+  - - 18
+    - 1
+    - 6ybced evrtvrbvrb
+    - '2016-02-08 05:24:13.617128'
+    - '2016-02-08 07:32:20.845248'
+    - 2
+    - 3
+  - - 19
+    - 4
+    - rewsxdf
+    - '2016-02-08 06:37:11.298041'
+    - '2016-02-08 06:37:11.298041'
+    - 1
+    - 2
+  - - 21
+    - 5
+    - ikujyhtgrf
+    - '2016-02-08 07:17:02.377722'
+    - '2016-02-08 07:17:02.377722'
+    - 1
+    - 1
+  - - 22
+    - 4
+    - rbtrgwefads
+    - '2016-02-09 05:42:26.395360'
+    - '2016-02-09 05:42:26.395360'
+    - 1
+    - 3
+  - - 23
+    - 4
+    - ertyhj
+    - '2016-02-09 08:28:44.180300'
+    - '2016-02-09 08:28:44.180300'
+    - 1
+    - 5
+  - - 24
+    - 3
+    - 23t34gherg
+    - '2016-02-09 09:02:48.734499'
+    - '2016-02-09 09:02:48.734499'
+    - 2
+    - 5
+  - - 25
+    - 2
+    - 12srtdyfguhi
+    - '2016-02-09 10:28:04.680111'
+    - '2016-02-09 10:28:16.692910'
+    - 2
+    - 4
+  - - 26
+    - 4
+    - qwedfghj
+    - '2016-02-09 21:03:38.106568'
+    - '2016-02-09 21:03:38.106568'
+    - 1
+    - 6
