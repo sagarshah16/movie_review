@@ -16,6 +16,3 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.logo {
-  background-image:url('<%= asset_path("logo.png") %> ');
-}
