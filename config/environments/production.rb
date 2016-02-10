@@ -82,8 +82,8 @@ Rails.application.configure do
   :storage => :s3,
   :s3_credentials => {
     :bucket => ENV['sagarbucket16'],
-    :access_key_id => ENV['AKIAIJUSHP7TYAS3AYUA'],
-    :secret_access_key => ENV['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']
+    :access_key_id => ENV['AKIAJZMGM25TFNWY2G2A'],
+    :secret_access_key => ENV['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']
   }
 }
 end
